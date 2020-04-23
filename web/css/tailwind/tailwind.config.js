@@ -2,8 +2,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'body': ['Raleway','Helvetica', 'Arial', 'sans-serif'],
-        'display': ['Raleway','Helvetica', 'Arial', 'sans-serif'],
+        'body': ['Source Sans Pro','Helvetica', 'Arial', 'sans-serif'],
+        'display': ['Roboto','Helvetica', 'Arial', 'sans-serif'],
+        'serif': ['Playfair Display','-apple-system', 'BlinkMacSystemFont'],
       }
     },
   },

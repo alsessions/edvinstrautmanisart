@@ -1,6 +1,22 @@
 @tailwind base;
 
 
+p {
+    @apply mb-4 leading-relaxed;
+}
+
+
+.lede {
+    @apply  text-gray-800 text-2xl font-serif;
+  }
+
+.content ul {
+    @apply list-disc list-inside mb-4;
+}
+
+.content a {
+    @apply border-b-2 border-teal-300;
+}
 
 .bg-image {
     background-image: url('/assets/edvins-back.jpg');
@@ -11,9 +27,152 @@ body.bg-image h1 {
     @apply text-black;
 }
 
-p {
-    @apply mb-4;
+.tab-content p {
+    @apply px-4;
 }
+
+/* icons */
+
+.gg-arrow-right-r {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 2px solid;
+    transform: scale(var(--ggs,1));
+    border-radius: 4px
+}
+
+.gg-arrow-right-r::after,
+.gg-arrow-right-r::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    right: 4px
+}
+
+.gg-arrow-right-r::after {
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    transform: rotate(45deg);
+    bottom: 6px
+}
+
+.gg-arrow-right-r::before {
+    width: 10px;
+    height: 2px;
+    bottom: 8px;
+    background: currentColor;
+
+}
+
+.gg-arrow-left-r {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: 2px solid;
+    transform: scale(var(--ggs,1));
+    border-radius: 4px
+}
+
+.gg-arrow-left-r::after,
+.gg-arrow-left-r::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    left: 4px
+}
+
+.gg-arrow-left-r::after {
+    width: 6px;
+    height: 6px;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    transform: rotate(45deg);
+    bottom: 6px
+}
+
+.gg-arrow-left-r::before {
+    width: 10px;
+    height: 2px;
+    bottom: 8px;
+    background: currentColor;
+}
+
+
+/* Dropdowns on exhibitions */
+
+     /* Tab content - closed */
+     .tab-content {
+        max-height: 0;
+        -webkit-transition: max-height .35s;
+        -o-transition: max-height .35s;
+        transition: max-height .35s;
+        
+        }
+        /* :checked - resize to full height */
+        .tab input:checked ~ .tab-content {
+        max-height: 150rem;
+        }
+        /* Label formatting when open */
+        .tab input:checked + label{
+        /*@apply  p-5 border-l-2 border-indigo-500 bg-gray-100 text-indigo*/
+        
+        padding: .5rem 0; /*.p-5*/
+      
+        
+        background-color: #f8fafc; /*.bg-gray-100 */
+        color: #6574cd; /*.text-indigo*/
+        }
+        /* Icon */
+        .tab label::after {
+        float:right;
+        right: 0;
+        top: 0;
+        display: block;
+        width: 1.25em;
+        height: 1.25em;
+        line-height: 1.25;
+        font-size: 1rem;
+        text-align: center;
+        -webkit-transition: all .35s;
+        -o-transition: all .35s;
+        transition: all .35s;
+        }
+
+        /* Icon formatting - closed */
+        .tab input[type=checkbox] + label::after {
+        content: "+";
+        font-weight:bold; /*.font-bold*/
+        border-width: 1px; /*.border*/
+        border-radius: 9999px; /*.rounded-full */
+        border-color: #b8c2cc; /*.border-grey*/
+        }
+        .tab input[type=radio] + label::after {
+        content: "\25BE";
+        font-weight:bold; /*.font-bold*/
+        border-width: 1px; /*.border*/
+        border-radius: 9999px; /*.rounded-full */
+        border-color: #b8c2cc; /*.border-grey*/
+        }
+        /* Icon formatting - open */
+        .tab input[type=checkbox]:checked + label::after {
+        transform: rotate(315deg);
+        background-color: #6574cd; /*.bg-indigo*/
+        color: #f8fafc; /*.text-grey-lightest*/
+        }
+        .tab input[type=radio]:checked + label::after {
+        transform: rotateX(180deg);
+        background-color: #6574cd; /*.bg-indigo*/
+        color: #f8fafc; /*.text-grey-lightest*/
+        }
 
 @tailwind components;
 @tailwind utilities;
