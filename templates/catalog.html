@@ -1,0 +1,39 @@
+{% include '_partials/_header.html' %}
+{% include '_partials/_nav.html' %}
+    <main class="container mx-auto px-4 md:px-0">
+	
+		<h1 class="text-3xl text-center px-4 mt-8 mb-1 text-gray-700">{{ entry.title }}</h1>
+        <h2 class="text-lg content text-center text-gray-600 mb-8 w-full md:w-1/2 mx-auto">{{ entry.body }}</h2>
+
+
+ 
+
+    {# Create an entry query with the 'section' and 'limit' parameters #}
+{% set myEntryQuery = craft.entries()
+    .section('paintings')
+    .limit(100) %}
+
+{# Fetch the entries #}
+{% set entries = myEntryQuery.all() %}
+
+{# Display the entries #}
+<div class="flex flex-wrap">
+{% for entry in entries %}
+  
+    <figure  class="w-1/2 md:w-1/4 p-4 leading-none">
+       {% for asset in entry.painting.all() %}
+       <a href="{{ entry.url }}"> <img src="{{ asset.url('height400') }}" alt="{{ asset.title }}" class="mx-auto"></a> {% endfor %}
+       <figcaption class="mx-auto text-center">
+      <span class="py-2 block">{{ entry.title }}</span>
+       <span class="italic  text-sm text-gray-600">{{ entry.medium }}<br>
+       {{ entry.dimensions }}</span>
+       
+       
+       </figcaption>
+    </figure>
+        
+  
+{% endfor %}
+</div>
+    </main>
+    {% include '_partials/_footer.html' %}

@@ -1,0 +1,19 @@
+@tailwind base;
+
+
+
+.bg-image {
+    background-image: url('/assets/edvins-back.jpg');
+    background-size: cover;
+}
+
+body.bg-image h1 {
+    @apply text-black;
+}
+
+p {
+    @apply mb-4;
+}
+
+@tailwind components;
+@tailwind utilities;

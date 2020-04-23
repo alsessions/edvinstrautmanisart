@@ -1,0 +1,39 @@
+{% include '_partials/_header.html' %}
+{% include '_partials/_nav.html' %}
+<header style="background-image: linear-gradient(
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)
+      ), url('assets/cesis_gallery_wide.jpg'); background-size: cover; background-position: center center;" class="py-4 md:py-24">
+<h1 class="text-2xl md:text-4xl text-center px-4 mb-1 text-white">Cesis Art Festival</h1>
+        <h2 class="text-lg md:text-2xl px-2 md:px-0 text-center text-white mb-8 w-full md:w-2/3 mx-auto">In the Summer of 2019 Strautmanis' first-ever retrospective in his native Latvia. Fifteen large and never before shown works were displayed showcasing the most significant and creative period of the artist's career.</h2>
+        </header>
+
+
+
+    <main class="container mx-auto px-4 md:px-0">
+	
+
+
+{# Create an asset query with the 'volume' and 'kind' parameters #}
+{% set myAssetQuery = craft.assets()
+    .volume('cesis')
+    .kind('image') %}
+
+{# Fetch the assets #}
+{% set images = myAssetQuery.all() %}
+
+{# Display the thumbnail list #}
+<div class="flex flex-wrap mt-6">
+    {% for image in images %}
+    <figure class="px-4 mb-8 w-1/2 md:w-1/3  text-center mx-auto">
+     <h4 class="md:text-2xl bold text-center">{{ image.title }}<h4>
+     <p class="text-center text-sm md:text-normal italic">{{ image.paintingSize }} | {{ image.dateNotes }}</p>
+        <img src="{{ image.getUrl('height400') }}" alt="{{ image.title }}" class="mx-auto">
+       
+       
+    </figure>
+    {% endfor %}
+</div>
+
+    </main>
+    {% include '_partials/_footer.html' %}

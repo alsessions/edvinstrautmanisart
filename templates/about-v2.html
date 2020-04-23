@@ -1,0 +1,32 @@
+{% include '_partials/_header.html' %}
+{% include '_partials/_nav.html' %}
+    <main class="container mx-auto px-4 my-6 md:px-0">
+
+
+
+	<article class="w-full md:w-3/4  mx-auto content  px-2">
+    <h1 class="text-xl md:text-3xl  mb-4">{{ entry.title }}</h1>
+    {% for block in entry.matrixContent.all() %}
+	{% switch block.type %}
+
+		{% case "text" %}
+        <div class="leading-loose">
+			{{ block.text }} {# Type: Redactor #}
+</div>
+		{% case "image" %}
+			{% for asset in block.image.all() %}
+    <img src="{{ asset.url('width300') }}" alt="{{ block.caption }}" class="mx-auto" />
+{% endfor %}
+			<p class="text-center italic pb-4">{{ block.caption }} {# Type: Plain Text #}
+
+		{% default %}
+			...
+
+	{% endswitch %}
+{% endfor %}
+		
+       
+    </article>
+
+    </main>
+{% include '_partials/_footer.html' %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    {% hook 'seomateMeta' %}
+    
+    <link href="/css/tailwind/public/build/tailwind.css" rel="stylesheet">
+   
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+<header>
+<h1 class="text-center text-3xl text-gray-900 md:text-4xl pt-4 md:px-4 font-serif"><a href="/">Edvins Strautmanis Art</a></h1>
+<nav class="mx-auto md:pt-4 py-6 md:px-2">
+        
+        <ul class="flex flex-wrap justify-center uppercase">
+            <li class="pr-5" ><a href="/about" class="text-gray-700"> Biography </a></li>
+            <li class="pr-5" ><a href="/catalog" class="text-gray-700">Selected Work</a></li>
+            <li class="pr-5" ><a href="/exhibitions" class="text-gray-700">Exhibitions &amp; Media</a></li>
+            <li class="pr-5" ><a href="/contact" class="text-gray-700">Contact Us</a></li>
+            
+        </ul>
+    </nav>
+</header>    
+<hr>
+	<main class=" container py-6 mx-auto ">
+    <div class="py-6 md:max-w-4xl md:px-2 md:text-center px-2 mx-auto">
+  
+<p class="lede leading-tight">Here is where we'll need a few lines of copy. Not too much. About this much.</p><p>Edvins Strautmanis was born in Latvia in 1933 and after World War II emigrated with his family to Chicago in 1950. Strautmanis graduated from the School of the Art Institute of Chicago and began exhibiting in 1965.</p>
+</div>
+
+	
+        <figure class="w-full md:w-2/3 mx-auto mb-6">
+<img src="assets/paintings/Strautmanis_untitledQ_1980s_acryliconcanvas_20x24.jpg">
+<figcaption class="text-center italic py-4 text-gray-900">Untitled | 1980 | Acrylic on Oil</figcaption>
+</figure>
+
+
+</main>
+{% include '_partials/_footer.html' %}
+</body>
+</html>
